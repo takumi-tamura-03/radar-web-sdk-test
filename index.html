@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar Web SDK Test</title>
+    <script src="https://js.radar.com/v4.4.5/radar.min.js"></script>
+</head>
+
+<body>
+    <h1>Radar Web SDK Test</h1>
+    <script>
+        // Radarの初期化
+        Radar.initialize('{{TEST_API_KEY}}');
+
+        // ユーザー識別の設定
+        Radar.setUserId('test-user');
+
+        // 現在地をトラッキング
+        Radar.trackOnce()
+            .then((result) => {
+                console.log('Location:', result.location);
+                console.log('Geofences:', result.events);
+            })
+            .catch((err) => {
+                console.error('Error:', err);
+            });
+    </script>
+</body>
+
+</html>
